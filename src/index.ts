@@ -16,7 +16,7 @@ interface CachedRedisClient {
 
 const db: {
   [key: string]: {
-    [key: string]: CachedRedisClient | RedisClient | null;
+    [key: string]: RedisClient;
   };
 } = {};
 
@@ -31,7 +31,7 @@ function createClient(options: ClientOpts = {}): CachedRedisClient {
     client.select(selectedDB);
     client.on('error', (err: Error): void => {
       debug('swm:redis:client')(err);
-      db[key][selectedDB] = null;
+      delete db[key][selectedDB];
     });
     db[key][selectedDB] = client;
   }
@@ -39,7 +39,7 @@ function createClient(options: ClientOpts = {}): CachedRedisClient {
   result.select = (sdb: number): CachedRedisClient =>
     createClient({ ...options, db: sdb });
   list.forEach((method: string) => {
-    result[method] = (...args: []): Promise<any> => {
+    result[method] = (...args: []): Promise<unknown> => {
       if (db[key][selectedDB] === null) {
         // 异步,不然请求会阻塞
         ((): void => {
@@ -47,9 +47,8 @@ function createClient(options: ClientOpts = {}): CachedRedisClient {
         })();
         return new Promise(() => null);
       }
-      const promiseFn = promisify(db[key][selectedDB][method]).bind(
-        db[key][selectedDB]
-      );
+      const client: RedisClient = db[key][selectedDB];
+      const promiseFn = promisify(client[method]).bind(client);
       return promiseFn(args);
     };
   });
