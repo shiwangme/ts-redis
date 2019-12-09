@@ -1,6 +1,6 @@
 {
   "name": "@shiwangme/redis",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "TypeScript Redis 封装优化",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,21 +11,20 @@
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles --config jest.config.json"
   },
   "dependencies": {
-    "debug": "^4.1.1",
-    "redis": "^2.8.0",
-    "redis-commands": "^1.5.0"
+    "ioredis": "^4.14.1"
   },
   "devDependencies": {
     "@shiwangme/eslint-config": "^1.0.3",
     "@types/debug": "^4.1.5",
+    "@types/ioredis": "^4.14.1",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
-    "@types/redis": "^2.8.14",
     "@types/should": "^13.0.0",
     "coveralls": "^3.0.9",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.18.2",
     "jest": "^24.9.0",
+    "should": "^13.2.3",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"

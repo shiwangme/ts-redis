@@ -12,6 +12,8 @@ yarn add @shiwangme/redis
 
 此处给出的传统 Node.js 调用方式示例。同时，您可以在 Typescript 中使用。
 
+文档参考： [ioredis](https://github.com/luin/ioredis)
+
 ## License
 
 Apache 2.0
