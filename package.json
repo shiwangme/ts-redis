@@ -1,0 +1,28 @@
+{
+  "name": "@shiwangme/redis",
+  "version": "0.0.0",
+  "description": "TypeScript Redis 封装优化",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext .js,.ts --fix src",
+    "prepublish": "npm run build",
+    "test": "jest --forceExit --coverage --verbose --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiwangme/ts-redis.git"
+  },
+  "keywords": [
+    "redis",
+    "ts",
+    "node"
+  ],
+  "author": "Willin Wang",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/shiwangme/ts-redis/issues"
+  },
+  "homepage": "https://github.com/shiwangme/ts-redis#readme"
+}

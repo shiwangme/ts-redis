@@ -1,0 +1,19 @@
+{
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "tsconfig.json"
+    }
+  },
+  "clearMocks": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": ["src/**/*.ts"],
+  "coverageDirectory": "coverage",
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "coverageReporters": ["json", "html", "lcov"],
+  "moduleFileExtensions": ["js", "json", "jsx", "ts", "tsx", "node"],
+  "testEnvironment": "node",
+  "testMatch": ["**/test/**/*.[jt]s?(x)", "!**/test/**/_*.[jt]s?(x)"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  }
+}
