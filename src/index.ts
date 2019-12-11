@@ -20,3 +20,5 @@ export default function(options: RedisOptions = {}): Redis {
   }
   return db[key];
 }
+
+export { RedisOptions, Redis };
