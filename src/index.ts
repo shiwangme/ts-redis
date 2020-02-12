@@ -3,7 +3,7 @@ import IORedis, { RedisOptions, Redis } from 'ioredis';
 
 const db: { [key: string]: Redis } = {};
 
-export const jsonMd5 = (obj: object): string =>
+const jsonMd5 = (obj: object): string =>
   crypto
     .createHash('md5')
     .update(JSON.stringify(obj))
