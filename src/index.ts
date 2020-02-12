@@ -9,11 +9,11 @@ export const jsonMd5 = (obj: object): string =>
     .update(JSON.stringify(obj))
     .digest('hex');
 
-function createClient(key: string, options: RedisOptions): void {
-  db[key] = new IORedis(options);
+function createClient(key: string, options: Array<RedisOptions>): void {
+  db[key] = new IORedis(...options);
 }
 
-export default function(options: RedisOptions = {}): Redis {
+export default function(...options: Array<RedisOptions>): Redis {
   const key = jsonMd5(options);
   if (!db[key]) {
     createClient(key, options);
