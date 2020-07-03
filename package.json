@@ -1,6 +1,6 @@
 {
   "name": "@shiwangme/redis",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "TypeScript Redis 封装优化",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,7 +11,7 @@
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles --config jest.config.json"
   },
   "dependencies": {
-    "ioredis": "^4.14.1"
+    "ioredis": "^4.17.3"
   },
   "devDependencies": {
     "@shiwangme/eslint-config": "^1.0.3",
